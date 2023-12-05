@@ -13,6 +13,7 @@ import Logo from "./Logo";
 import { useState } from "react";
 import DesktopNavbar from "./DesktopNavLinks";
 import MobileLinks from "./MobileNavLinks";
+import LoginButton from "./LoginButton";
 
 export default function Header() {
   const [isMenuOpen, setIsMenuOpen] = useState<boolean>(false);
@@ -32,24 +33,7 @@ export default function Header() {
       <DesktopNavbar />
 
       {/* Sign and Sign Up */}
-      <NavbarContent justify='end'>
-        <NavbarItem className='hidden lg:flex'>
-          <Link href='#'>Login</Link>
-        </NavbarItem>
-        <NavbarItem>
-          <Button
-            startContent={<IoIosLogIn size={25} />}
-            as={Link}
-            className='text-base px-5'
-            color='secondary'
-            href='#'
-            variant='shadow'
-            radius='sm'
-          >
-            Sign Up
-          </Button>
-        </NavbarItem>
-      </NavbarContent>
+      <LoginButton />
 
       <MobileLinks />
     </Navbar>
