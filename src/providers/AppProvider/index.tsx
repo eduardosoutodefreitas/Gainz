@@ -1,4 +1,5 @@
 "use client";
+import { WorkoutProvider } from "@/context/WorkoutContext";
 import { NextUIProvider } from "@nextui-org/react";
 import { SessionProvider } from "next-auth/react";
 
@@ -9,7 +10,9 @@ interface AppProviderProps {
 const AppProvider = ({ children }: AppProviderProps) => {
   return (
     <SessionProvider>
-      <NextUIProvider>{children}</NextUIProvider>;
+      <WorkoutProvider>
+        <NextUIProvider>{children}</NextUIProvider>;
+      </WorkoutProvider>
     </SessionProvider>
   );
 };
