@@ -19,17 +19,16 @@ const AddExerciseButton = ({ exercise, children }: AddExerciseButtonProps) => {
     }
   };
   return (
-    <div className='min-w-[28px]'>
-      <Button
-        isIconOnly
-        color='secondary'
-        variant='light'
-        aria-label='Take a photo'
-        onClick={handleAddExerciseClick}
-      >
-        {children}
-      </Button>
-    </div>
+    <Button
+      isIconOnly
+      color='secondary'
+      variant='light'
+      aria-label='Take a photo'
+      onClick={handleAddExerciseClick}
+      className='min-w-[28px]'
+    >
+      {children}
+    </Button>
   );
 };
 
