@@ -26,9 +26,15 @@ const WorkoutProvider = ({ children }: WorkoutProviderProps) => {
   };
 
   const removeExercise = (exerciseId: string) => {
-    setAddedExercises(
-      addedExercises.filter((exercise) => exercise.id !== exerciseId)
+    const indexToRemove = addedExercises.findIndex(
+      (exercise) => exercise.id === exerciseId
     );
+
+    if (indexToRemove !== -1) {
+      const updatedExercises = [...addedExercises];
+      updatedExercises.splice(indexToRemove, 1);
+      setAddedExercises(updatedExercises);
+    }
   };
 
   return (
