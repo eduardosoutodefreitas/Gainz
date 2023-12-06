@@ -38,6 +38,7 @@ const config: Config = {
         },
       },
     }),
+    require("tailwind-scrollbar")({ nocompatible: true }),
   ],
 };
 export default config;
