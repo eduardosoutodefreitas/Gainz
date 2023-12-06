@@ -13,7 +13,7 @@ const AppProvider = ({ children }: AppProviderProps) => {
     <SessionProvider>
       <ExercisesModalProvider>
         <WorkoutProvider>
-          <NextUIProvider>{children}</NextUIProvider>;
+          <NextUIProvider>{children}</NextUIProvider>
         </WorkoutProvider>
       </ExercisesModalProvider>
     </SessionProvider>
