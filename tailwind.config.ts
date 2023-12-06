@@ -13,6 +13,9 @@ const config: Config = {
       colors: {
         darkSecondaryBg: "#080808",
       },
+      screens: {
+        xs: "458px",
+      },
     },
   },
   darkMode: "class",
