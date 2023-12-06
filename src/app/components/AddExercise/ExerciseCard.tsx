@@ -9,10 +9,7 @@ interface ExerciseProps {
 const ExerciseCard = ({ exercise }: ExerciseProps) => {
   return (
     <div className='flex items-center gap-5 mb-5 w-full p-3 hover:bg-default-50 rounded-md'>
-      <AddExerciseButton exercise={exercise}>
-        <FaPlus size={28} />
-      </AddExerciseButton>
-      <div className='relative w-[100px] h-[100px]'>
+      <div className='relative w-[100px] min-w-[100px] h-[100px]'>
         <Image
           fill
           style={{ objectFit: "cover" }}
@@ -25,6 +22,9 @@ const ExerciseCard = ({ exercise }: ExerciseProps) => {
         <p className='text-lg capitalize font-medium'>{exercise.name}</p>
         <p className='capitalize text-secondary'>{exercise.target}</p>
       </div>
+      <AddExerciseButton exercise={exercise}>
+        <FaPlus size={28} />
+      </AddExerciseButton>
     </div>
   );
 };
