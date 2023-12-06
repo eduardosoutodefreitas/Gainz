@@ -4,7 +4,7 @@ interface SectionTitleProps {
 }
 
 const SectionTitle = ({ children, extraStyles = "" }: SectionTitleProps) => {
-  const titleStyles = "text-2xl md:text-3xl lg:text-4xl font-medium";
+  const titleStyles = "text-2xl lg:text-3xl font-medium";
   return <h2 className={`${titleStyles} ${extraStyles}`}>{children}</h2>;
 };
 
