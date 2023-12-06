@@ -12,15 +12,16 @@ const ExerciseCard = ({ exercise }: ExerciseProps) => {
       <AddExerciseButton exercise={exercise}>
         <FaPlus size={28} />
       </AddExerciseButton>
-      <div className='relative min-w-[100px] min-h-[100px]'>
+      <div className='relative w-[100px] h-[100px]'>
         <Image
           fill
+          style={{ objectFit: "cover" }}
           alt={`${exercise.name} icon`}
           className='rounded-md'
           src={exercise.gifUrl}
         />
       </div>
-      <div className='self-start'>
+      <div className='self-start w-[50%]'>
         <p className='text-lg capitalize font-medium'>{exercise.name}</p>
         <p className='capitalize text-secondary'>{exercise.target}</p>
       </div>
