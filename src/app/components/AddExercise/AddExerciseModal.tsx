@@ -25,7 +25,6 @@ export default function AddExercisesModal({
         Add Exercise
       </Button>
       <Modal
-        className='lg:hidden'
         hideCloseButton={true}
         isOpen={isOpen}
         scrollBehavior='inside'
