@@ -24,7 +24,7 @@ const AddExercisesContainer = ({ exercises }: AddExercisesContainerProps) => {
   };
 
   return (
-    <div className='bg-darkSecondaryBg w-full max-w-md min-w-[324px] p-5 h-[600px] overflow-y-auto scrollbar-thin scrollbar-thumb-secondary scrollbar-thumb-rounded-sm scrollbar-track-black rounded-sm'>
+    <div className='bg-darkSecondaryBg w-full flex flex-col justify-between max-w-md lg:min-w-[448px] p-5 h-[600px] rounded-sm'>
       <Select
         aria-labelledby='Select a muscle target'
         items={targets}
@@ -35,7 +35,7 @@ const AddExercisesContainer = ({ exercises }: AddExercisesContainerProps) => {
       >
         {(target) => <SelectItem key={target.value}>{target.label}</SelectItem>}
       </Select>
-      <div>
+      <div className='max-h-[80%]  overflow-y-auto scrollbar-thin scrollbar-thumb-secondary scrollbar-thumb-rounded-sm scrollbar-track-black'>
         {filteredExercises.map((exercise) => (
           <ExerciseCard exercise={exercise} key={exercise.id} />
         ))}
