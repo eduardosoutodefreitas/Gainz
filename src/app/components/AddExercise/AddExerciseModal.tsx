@@ -15,7 +15,7 @@ export default function AddExercisesModal({
   return (
     <>
       <Button
-        className='w-full text-base lg:text-lg font-medium lg:hidden'
+        className='text-base lg:text-lg font-medium lg:hidden w-full min-w-[160px] xs:w-1/3 xs:max-w-xs  '
         color='secondary'
         radius='sm'
         variant='shadow'
