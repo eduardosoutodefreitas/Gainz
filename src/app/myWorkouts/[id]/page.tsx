@@ -1,13 +1,12 @@
 import ErrorComponent from "@/app/components/ErrorComponent/ErrorComponent";
 import ExerciseCard from "@/app/components/ExerciseCard.tsx/ExerciseCard";
-import SectionTitle from "@/app/components/Heading";
+import SectionTitle from "@/app/components/SectionTitle/SectionTitle";
 import { getUserWorkouts } from "@/lib/exercises.db";
 import getExercises from "@/services/getExercises";
 import getUserEmail from "@/services/getUserEmail";
 import getUserWorkoutExercises from "@/services/getUserWorkoutExercises";
 import { Exercise } from "@/types/ExercisesTypes";
 import { Button } from "@nextui-org/react";
-import Image from "next/image";
 import Link from "next/link";
 import { FaDumbbell } from "react-icons/fa6";
 import { IoMdArrowRoundBack } from "react-icons/io";
