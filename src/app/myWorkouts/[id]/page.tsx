@@ -58,9 +58,9 @@ const WorkoutPage = async ({ params }: WorkoutPageProps) => {
           <SectionTitle>{workout.name}</SectionTitle>
         </div>
         <div className='max-h-[500px] overflow-y-auto scrollbar-thin scrollbar-thumb-secondary scrollbar-thumb-rounded-sm scrollbar-track-black'>
-          {userWorkoutExercises.map((exercise) => (
+          {userWorkoutExercises.map((exercise, index) => (
             <div
-              key={`user exercise ${exercise.id}`}
+              key={`user exercise ${exercise.id} ${index}`}
               className='relative flex items-center gap-5 mb-5 w-full p-3 hover:bg-default-50 rounded-md'
             >
               <div className='relative w-[110px] h-[110px] sm:w-[150px] sm:h-[150px]'>
