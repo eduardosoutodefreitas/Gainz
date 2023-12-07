@@ -1,14 +1,17 @@
 import { Button } from "@nextui-org/react";
 interface SaveWorkoutButtonProps {
   saveWorkout: () => void;
-  isDisabled: boolean;
+  isLoading?: boolean;
+  isDisabled?: boolean;
 }
 const SaveWorkoutButton = ({
   saveWorkout,
-  isDisabled,
+  isLoading = false,
+  isDisabled = false,
 }: SaveWorkoutButtonProps) => {
   return (
     <Button
+      isLoading={isLoading}
       color='secondary'
       isDisabled={isDisabled}
       onClick={saveWorkout}

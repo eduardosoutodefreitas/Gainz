@@ -9,6 +9,7 @@ const WorkoutPreview = () => {
     workoutName,
     addedExercises,
     buttonIsDisabled,
+    isLoading,
     setWorkoutName,
     handleSaveWorkoutClick,
   } = useWorkoutPreview();
@@ -34,6 +35,7 @@ const WorkoutPreview = () => {
         ))}
       </div>
       <SaveWorkoutButton
+        isLoading={isLoading}
         saveWorkout={handleSaveWorkoutClick}
         isDisabled={buttonIsDisabled}
       />
