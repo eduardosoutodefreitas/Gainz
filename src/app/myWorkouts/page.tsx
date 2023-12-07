@@ -2,7 +2,7 @@ import { getUserWorkouts } from "@/lib/exercises.db";
 import Link from "next/link";
 import { Button } from "@nextui-org/react";
 import { MdChecklist } from "react-icons/md";
-import SectionTitle from "../components/Heading";
+import SectionTitle from "../components/SectionTitle/SectionTitle";
 import getUserEmail from "@/services/getUserEmail";
 import ErrorComponent from "../components/ErrorComponent/ErrorComponent";
 import UserWorkoutsList from "./UserWorkoutsList";
