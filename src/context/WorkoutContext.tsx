@@ -10,11 +10,13 @@ interface WorkoutContextProps {
   addedExercises: Exercise[];
   addExercise: (exercise: Exercise) => void;
   removeExercise: (exerciseId: string) => void;
+  clearAddedExercises: () => void;
 }
 
 const WorkoutContext = createContext<WorkoutContextProps>({
   addExercise: () => {},
   removeExercise: () => {},
+  clearAddedExercises: () => {},
   addedExercises: [],
 });
 
@@ -36,10 +38,18 @@ const WorkoutProvider = ({ children }: WorkoutProviderProps) => {
       setAddedExercises(updatedExercises);
     }
   };
+  const clearAddedExercises = () => {
+    setAddedExercises([]);
+  };
 
   return (
     <WorkoutContext.Provider
-      value={{ addedExercises, addExercise, removeExercise }}
+      value={{
+        addedExercises,
+        addExercise,
+        removeExercise,
+        clearAddedExercises,
+      }}
     >
       {children}
     </WorkoutContext.Provider>
