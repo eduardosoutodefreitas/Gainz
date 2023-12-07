@@ -4,11 +4,9 @@ function getUserWorkoutExercises(
   userExercisesList: string[],
   exercises: Exercise[]
 ) {
-  const exercisesFromUserExercisesList = exercises.filter((exercise) =>
-    userExercisesList.includes(exercise.id)
+  return userExercisesList.flatMap((exerciseId) =>
+    exercises.filter((exercise) => exercise.id === exerciseId)
   );
-
-  return exercisesFromUserExercisesList;
 }
 
 export default getUserWorkoutExercises;
