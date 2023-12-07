@@ -5,6 +5,7 @@ import {
   DropdownMenu,
   DropdownItem,
 } from "@nextui-org/react";
+import Link from "next/link";
 import { CiLogout } from "react-icons/ci";
 
 interface UserOptionsProps {
@@ -21,6 +22,7 @@ const UserDropdown = ({ email, imageUrl, name, signOut }: UserOptionsProps) => {
         <Avatar
           color='secondary'
           isBordered
+          className='border-secondary'
           as='button'
           name={name!}
           src={imageUrl}
@@ -32,7 +34,12 @@ const UserDropdown = ({ email, imageUrl, name, signOut }: UserOptionsProps) => {
           <p className='font-semibold'>Signed in as</p>
           <p className='font-semibold'>{email}</p>
         </DropdownItem>
-        <DropdownItem key='my_workouts'>My Workouts</DropdownItem>
+
+        <DropdownItem key='my_workouts'>
+          <Link className='w-full hover:text-secondary' href='/myWorkouts'>
+            My Workouts
+          </Link>
+        </DropdownItem>
         <DropdownItem
           key='logout'
           color='danger'

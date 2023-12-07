@@ -2,20 +2,32 @@ import { NavbarContent, NavbarItem, Link } from "@nextui-org/react";
 
 const DesktopNavbar = () => {
   return (
-    <NavbarContent className='hidden sm:flex gap-4' justify='center'>
+    <NavbarContent className='hidden md:flex gap-8' justify='center'>
       <NavbarItem>
-        <Link color='foreground' href='#'>
-          Features
+        <Link
+          color='foreground'
+          className='hover:text-secondary text-lg'
+          href='/'
+        >
+          Home
         </Link>
       </NavbarItem>
-      <NavbarItem isActive>
-        <Link href='#' aria-current='page'>
-          Customers
+      <NavbarItem>
+        <Link
+          color='foreground'
+          href='/create-workout'
+          className='hover:text-secondary text-lg'
+        >
+          Create workout
         </Link>
       </NavbarItem>
       <NavbarItem>
-        <Link color='foreground' href='#'>
-          Integrations
+        <Link
+          color='foreground'
+          className='hover:text-secondary text-lg'
+          href='/contact'
+        >
+          Contact
         </Link>
       </NavbarItem>
     </NavbarContent>

@@ -1,12 +1,8 @@
 "use client";
-import { IoIosLogIn } from "react-icons/io";
 import {
   Navbar,
   NavbarBrand,
   NavbarContent,
-  NavbarItem,
-  Link,
-  Button,
   NavbarMenuToggle,
 } from "@nextui-org/react";
 import Logo from "./Logo";
@@ -18,12 +14,12 @@ import LoginButton from "./LoginButton";
 export default function Header() {
   const [isMenuOpen, setIsMenuOpen] = useState<boolean>(false);
   return (
-    <Navbar onMenuOpenChange={setIsMenuOpen} className='py-2'>
+    <Navbar maxWidth='2xl' onMenuOpenChange={setIsMenuOpen} className='py-2'>
       {/* Hamburguer and Logo */}
       <NavbarContent>
         <NavbarMenuToggle
           aria-label={isMenuOpen ? "Close menu" : "Open menu"}
-          className='sm:hidden'
+          className='md:hidden'
         />
         <NavbarBrand>
           <Logo />
