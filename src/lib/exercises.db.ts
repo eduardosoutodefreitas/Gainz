@@ -57,8 +57,36 @@ export async function getUserWorkouts(userEmail: string) {
       return;
     }
 
-    return user.createdWorkouts;
+    const createdWorkouts = user.createdWorkouts;
+
+    return createdWorkouts;
   } catch (error) {
     console.log(error);
+  }
+}
+export async function deleteWorkout(userEmail: string, workoutId: string) {
+  try {
+    const user = await prisma.user.findUnique({
+      where: {
+        email: userEmail,
+      },
+    });
+
+    if (!user) {
+      console.error("Usuário não encontrado.");
+      return;
+    }
+
+    // Exclua o treino
+    await prisma.workout.delete({
+      where: {
+        id: workoutId,
+      },
+    });
+
+    console.log("Treino removido com sucesso.");
+  } catch (error) {
+    console.error("Erro ao excluir treino:", error);
+    throw error;
   }
 }
