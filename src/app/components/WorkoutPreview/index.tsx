@@ -1,8 +1,8 @@
 "use client";
 import { Input } from "@nextui-org/react";
-import PreviewExerciseCard from "./PreviewExerciseCard";
 import SaveWorkoutButton from "../SaveWorkoutButton/SaveWorkoutButton";
 import useWorkoutPreview from "@/hooks/useWorkoutPreview";
+import ExerciseCard from "../ExerciseCard.tsx/ExerciseCard";
 
 const WorkoutPreview = () => {
   const {
@@ -26,7 +26,11 @@ const WorkoutPreview = () => {
       />
       <div className='h-[80%] overflow-y-auto scrollbar-thin scrollbar-thumb-secondary scrollbar-thumb-rounded-sm scrollbar-track-black'>
         {addedExercises.map((exercise) => (
-          <PreviewExerciseCard key={exercise.name} exercise={exercise} />
+          <ExerciseCard
+            key={`workout preview ${exercise.id}`}
+            exercise={exercise}
+            showRemoveButton
+          />
         ))}
       </div>
       <SaveWorkoutButton

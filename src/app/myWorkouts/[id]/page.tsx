@@ -1,4 +1,5 @@
 import ErrorComponent from "@/app/components/ErrorComponent/ErrorComponent";
+import ExerciseCard from "@/app/components/ExerciseCard.tsx/ExerciseCard";
 import SectionTitle from "@/app/components/Heading";
 import { getUserWorkouts } from "@/lib/exercises.db";
 import getExercises from "@/services/getExercises";
@@ -59,23 +60,10 @@ const WorkoutPage = async ({ params }: WorkoutPageProps) => {
         </div>
         <div className='max-h-[500px] overflow-y-auto scrollbar-thin scrollbar-thumb-secondary scrollbar-thumb-rounded-sm scrollbar-track-black'>
           {userWorkoutExercises.map((exercise, index) => (
-            <div
+            <ExerciseCard
               key={`user exercise ${exercise.id} ${index}`}
-              className='relative flex items-center gap-5 mb-5 w-full p-3 hover:bg-default-50 rounded-md'
-            >
-              <div className='relative w-[110px] h-[110px] sm:w-[150px] sm:h-[150px]'>
-                <Image
-                  fill
-                  style={{ objectFit: "cover" }}
-                  alt={`${exercise.name} icon`}
-                  className='rounded-md'
-                  src={exercise.gifUrl}
-                />
-              </div>
-              <p className='text-lg sm:text-xl capitalize font-medium w-1/2'>
-                {exercise.name}
-              </p>
-            </div>
+              exercise={exercise}
+            />
           ))}
         </div>
       </div>

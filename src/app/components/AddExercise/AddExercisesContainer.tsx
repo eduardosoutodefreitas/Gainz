@@ -1,9 +1,9 @@
 "use client";
 import { Exercise } from "@/types/ExercisesTypes";
-import ExerciseCard from "./ExerciseCard";
 import targets from "@/constants/targets";
 import { Select, SelectItem } from "@nextui-org/react";
 import { useState } from "react";
+import ExerciseCard from "../ExerciseCard.tsx/ExerciseCard";
 
 interface AddExercisesContainerProps {
   exercises: Exercise[];
@@ -35,9 +35,15 @@ const AddExercisesContainer = ({ exercises }: AddExercisesContainerProps) => {
       >
         {(target) => <SelectItem key={target.value}>{target.label}</SelectItem>}
       </Select>
-      <div className='max-h-[80%]  overflow-y-auto scrollbar-thin scrollbar-thumb-secondary scrollbar-thumb-rounded-sm scrollbar-track-black'>
+      <div className='h-[80%] overflow-y-auto scrollbar-thin scrollbar-thumb-secondary scrollbar-thumb-rounded-sm scrollbar-track-black'>
         {filteredExercises.map((exercise) => (
-          <ExerciseCard exercise={exercise} key={exercise.id} />
+          <ExerciseCard
+            showMuscleTarget
+            key={exercise.id}
+            exercise={exercise}
+            imageSize='small'
+            showAddButton
+          />
         ))}
       </div>
     </div>
