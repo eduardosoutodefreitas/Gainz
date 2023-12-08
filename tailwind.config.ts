@@ -11,8 +11,8 @@ const config: Config = {
   theme: {
     extend: {
       colors: {
-        darkSecondaryBg: "#080808",
-        alternativeBlack: "#010000",
+        darkSecondaryBg: "#0E0E12",
+        alternativeBlack: "#000106",
       },
       screens: {
         xs: "458px",
