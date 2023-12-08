@@ -12,8 +12,10 @@ const HeroCta = () => {
       </h1>
       <p className='sm:text-lg'>
         <Balancer>
-          Get personalized workouts with 1000+ exercises to choose from.
-          Transform your fitness journey with ease and simplicity.
+          Get personalized workouts with over 1000 exercises to choose from,
+          covering a wide range of fitness levels and goals. Transform your
+          fitness journey with ease and simplicity, and discover a multitude of
+          options to keep your workouts exciting and effective.
         </Balancer>
       </p>
       <Link href='/create-workout'>
