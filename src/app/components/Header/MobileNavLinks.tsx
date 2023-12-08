@@ -4,7 +4,7 @@ const MobileNav = () => {
   const linkStyles =
     "w-full hover:text-secondary hover:bg-default-50 py-1 pl-3 rounded-md";
   return (
-    <NavbarMenu className='bg-black pt-5'>
+    <NavbarMenu className='bg-black pt-5 h-[101vh]'>
       <NavbarMenuItem>
         <Link className={linkStyles} color='foreground' href='/' size='lg'>
           Home
