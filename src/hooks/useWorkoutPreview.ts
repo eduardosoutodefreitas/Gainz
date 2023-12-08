@@ -3,10 +3,12 @@ import { createWorkoutAction } from "@/app/actions/CreateUserWorkout/_actions";
 import { useWorkout } from "@/context/WorkoutContext";
 import { WorkoutData } from "@/types/WorkoutDataTypes";
 import { useSession } from "next-auth/react";
+import { useRouter } from "next/navigation";
 import { useState } from "react";
 import toast from "react-hot-toast";
 
 const useWorkoutPreview = () => {
+  const { push } = useRouter();
   const [isLoading, setIsLoading] = useState(false);
   const [workoutName, setWorkoutName] = useState("");
   const { data } = useSession();
@@ -42,6 +44,7 @@ const useWorkoutPreview = () => {
         setWorkoutName("");
         clearAddedExercises();
         toast.success("Workout created successfully!");
+        push("/myWorkouts");
       }
     } else {
       showLoginToast();
