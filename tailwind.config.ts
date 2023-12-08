@@ -12,6 +12,7 @@ const config: Config = {
     extend: {
       colors: {
         darkSecondaryBg: "#080808",
+        alternativeBlack: "#010000",
       },
       screens: {
         xs: "458px",
