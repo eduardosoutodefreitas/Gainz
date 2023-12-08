@@ -14,9 +14,13 @@ import Logo from "../Logo/Logo";
 export default function Header() {
   const [isMenuOpen, setIsMenuOpen] = useState<boolean>(false);
   return (
-    <Navbar maxWidth='2xl' onMenuOpenChange={setIsMenuOpen} className='py-2'>
+    <Navbar
+      maxWidth='2xl'
+      onMenuOpenChange={setIsMenuOpen}
+      className='py-2 px-0 xs:px-[1.5rem]'
+    >
       {/* Hamburguer and Logo */}
-      <NavbarContent>
+      <NavbarContent className='gap-2 xs:gap-4'>
         <NavbarMenuToggle
           aria-label={isMenuOpen ? "Close menu" : "Open menu"}
           className='md:hidden'
