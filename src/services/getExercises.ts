@@ -1,5 +1,5 @@
 const getExercises = async () => {
-  const url = "https://exercisedb.p.rapidapi.com/exercises?limit=10";
+  const url = "https://exercisedb.p.rapidapi.com/exercises";
   const rapidApiKey = process.env.RAPID_API_KEY;
   if (!rapidApiKey) {
     throw new Error("No API key specified");
