@@ -4,6 +4,7 @@ import { Workout } from "@prisma/client";
 import WorkoutCard from "../components/WorkoutCard/WorkoutCard";
 import { useState } from "react";
 import { deleteWorkoutAction } from "../actions/DeleteUserWorkout/_actions";
+import toast from "react-hot-toast";
 
 interface UserWorkoutsListProps {
   workouts: Workout[];
@@ -19,6 +20,7 @@ const UserWorkoutsList = ({ workouts, userEmail }: UserWorkoutsListProps) => {
       (workout) => workout.id !== workoutId
     );
     setUserWorkouts(updatedWorkouts);
+    toast.success("Workout deleted successfully");
   };
 
   return (
