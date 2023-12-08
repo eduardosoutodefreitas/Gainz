@@ -19,7 +19,7 @@ const LoginButton = () => {
         {status === "unauthenticated" && (
           <Button
             startContent={<CiLogin size={25} />}
-            className='text-base px-5'
+            className='xs:text-base text-sm'
             color='secondary'
             href='#'
             variant='shadow'
