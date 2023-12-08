@@ -7,13 +7,13 @@ interface LogoProps {
 
 const Logo = ({ size = "medium" }: LogoProps) => {
   const logoSizeClass = {
-    small: [122, 37],
-    medium: [132, 47],
+    small: [117, 32],
+    medium: [128, 42],
     large: [147, 79],
   }[size];
 
   return (
-    <Link href='/' className='scale-'>
+    <Link href='/'>
       <svg
         width={logoSizeClass[0]}
         height={logoSizeClass[1]}
