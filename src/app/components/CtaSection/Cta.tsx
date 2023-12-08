@@ -4,7 +4,7 @@ import Balancer from "react-wrap-balancer";
 
 const Cta = () => {
   return (
-    <section className='flex flex-col text-center items-center justify-center px-5 py-20 lg:py-36'>
+    <section className='flex flex-col text-center items-center justify-center px-8 py-20 lg:py-36'>
       <div className='max-w-3xl'>
         <h2 className='font-bold xl:text-6xl md:text-5xl text-4xl'>
           Start your fitness journey today
