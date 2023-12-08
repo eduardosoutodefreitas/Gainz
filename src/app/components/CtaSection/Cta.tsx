@@ -19,8 +19,7 @@ const Cta = () => {
       </div>
       <Link href='/create-workout'>
         <Button
-          className='my-3'
-          size='lg'
+          className='my-3 xs:text-base xs:px-5'
           radius='sm'
           variant='shadow'
           color='secondary'
