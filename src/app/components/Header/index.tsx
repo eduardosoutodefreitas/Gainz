@@ -5,11 +5,11 @@ import {
   NavbarContent,
   NavbarMenuToggle,
 } from "@nextui-org/react";
-import Logo from "./Logo";
 import { useState } from "react";
 import DesktopNavbar from "./DesktopNavLinks";
 import MobileLinks from "./MobileNavLinks";
 import LoginButton from "./LoginButton";
+import Logo from "../Logo/Logo";
 
 export default function Header() {
   const [isMenuOpen, setIsMenuOpen] = useState<boolean>(false);
