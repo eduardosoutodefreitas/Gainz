@@ -25,9 +25,9 @@ const DesktopNavbar = () => {
         <Link
           color='foreground'
           className='hover:text-secondary text-lg'
-          href='/contact'
+          href='/about'
         >
-          Contact
+          About
         </Link>
       </NavbarItem>
     </NavbarContent>

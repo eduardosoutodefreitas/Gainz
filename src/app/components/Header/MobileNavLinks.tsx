@@ -21,13 +21,8 @@ const MobileNav = () => {
         </Link>
       </NavbarMenuItem>
       <NavbarMenuItem>
-        <Link
-          className={linkStyles}
-          color='foreground'
-          href='/contact'
-          size='lg'
-        >
-          Contact
+        <Link className={linkStyles} color='foreground' href='/about' size='lg'>
+          About
         </Link>
       </NavbarMenuItem>
     </NavbarMenu>
