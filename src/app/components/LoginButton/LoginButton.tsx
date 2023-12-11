@@ -1,9 +1,8 @@
-"use client";
-import { NavbarContent, NavbarItem, Button } from "@nextui-org/react";
-
+import { Button, NavbarContent, NavbarItem } from "@nextui-org/react";
+import { useSession, signOut, signIn } from "next-auth/react";
+import React from "react";
 import { CiLogin } from "react-icons/ci";
-import { signIn, signOut, useSession } from "next-auth/react";
-import UserDropdown from "./UserDropdown";
+import UserDropdown from "../Header/UserDropdown";
 
 const LoginButton = () => {
   const { status, data } = useSession();

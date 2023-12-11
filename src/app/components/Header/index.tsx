@@ -8,8 +8,8 @@ import {
 import { useState } from "react";
 import DesktopNavbar from "./DesktopNavLinks";
 import MobileLinks from "./MobileNavLinks";
-import LoginButton from "./LoginButton";
 import Logo from "../Logo/Logo";
+import LoginButton from "../LoginButton/LoginButton";
 
 export default function Header() {
   const [isMenuOpen, setIsMenuOpen] = useState<boolean>(false);
@@ -34,7 +34,6 @@ export default function Header() {
 
       {/* Sign and Sign Up */}
       <LoginButton />
-
       <MobileLinks />
     </Navbar>
   );
