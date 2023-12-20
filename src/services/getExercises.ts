@@ -10,13 +10,12 @@ const getExercises = async () => {
       "X-RapidAPI-Key": rapidApiKey,
       "X-RapidAPI-Host": "exercisedb.p.rapidapi.com",
     },
-    next: { revalidate: 43200 },
+    next: { revalidate: 7200 },
   };
 
   try {
     const response = await fetch(url, options);
     const result = await response.json();
-    return result;
   } catch (error) {
     console.error(error);
   }
