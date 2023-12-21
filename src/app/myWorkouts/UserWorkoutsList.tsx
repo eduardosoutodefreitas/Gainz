@@ -1,8 +1,6 @@
 "use client";
-
 import { Workout } from "@prisma/client";
 import WorkoutCard from "../components/WorkoutCard/WorkoutCard";
-import { useState } from "react";
 import { deleteWorkoutAction } from "../actions/DeleteUserWorkout/_actions";
 import toast from "react-hot-toast";
 
@@ -12,20 +10,14 @@ interface UserWorkoutsListProps {
 }
 
 const UserWorkoutsList = ({ workouts, userEmail }: UserWorkoutsListProps) => {
-  const [userWorkouts, setUserWorkouts] = useState<Workout[]>(workouts);
-
   const handleDeleteButtonClick = async (workoutId: string) => {
     await deleteWorkoutAction(userEmail, workoutId);
-    const updatedWorkouts = userWorkouts.filter(
-      (workout) => workout.id !== workoutId
-    );
-    setUserWorkouts(updatedWorkouts);
     toast.success("Workout deleted successfully");
   };
 
   return (
     <div className='w-full p-5 rounded-sm bg-darkSecondaryBg max-h-[600px] overflow-y-auto scrollbar-thin scrollbar-thumb-secondary scrollbar-thumb-rounded-sm scrollbar-track-black'>
-      {userWorkouts.length === 0 && (
+      {workouts.length === 0 && (
         <p className='text-center text-lg'>
           No saved workouts. Create new custom workouts by clicking on the{" "}
           <span className='text-secondary font-medium'>
@@ -34,7 +26,7 @@ const UserWorkoutsList = ({ workouts, userEmail }: UserWorkoutsListProps) => {
           button.
         </p>
       )}
-      {userWorkouts.map((workout) => (
+      {workouts.map((workout) => (
         <WorkoutCard
           onDelete={() => handleDeleteButtonClick(workout.id)}
           key={workout.id}
