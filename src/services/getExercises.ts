@@ -10,7 +10,7 @@ const getExercises = async () => {
       "X-RapidAPI-Key": rapidApiKey,
       "X-RapidAPI-Host": "exercisedb.p.rapidapi.com",
     },
-    next: { revalidate: 7200 },
+    next: { revalidate: 3600 },
   };
 
   try {
