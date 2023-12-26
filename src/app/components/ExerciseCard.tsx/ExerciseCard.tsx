@@ -37,6 +37,7 @@ const ExerciseCard: React.FC<ExerciseCardProps> = ({
       <div className={`relative ${imageSizeClass}`}>
         <Image
           fill
+          unoptimized
           style={{ objectFit: "cover" }}
           sizes={sizes}
           alt={`${exercise.name} icon`}
