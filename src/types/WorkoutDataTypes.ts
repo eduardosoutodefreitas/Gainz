@@ -1,3 +1,11 @@
-import { Workout } from "@prisma/client";
+import { UserExercise } from "@prisma/client";
 
-export type WorkoutData = Pick<Workout, "name" | "exercisesList">;
+export type WorkoutData = {
+  name: string;
+  userExercises: {
+    name: string;
+    exerciseId: string;
+    sets: number;
+    reps: number;
+  }[];
+};
