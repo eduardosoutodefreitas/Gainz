@@ -26,8 +26,8 @@ const WorkoutPreview = () => {
         onValueChange={setWorkoutName}
       />
       <div className='h-[80%] overflow-y-auto scrollbar-thin scrollbar-thumb-secondary scrollbar-thumb-rounded-sm scrollbar-track-black'>
-        {addedExercises.map((exercise) => (
-          <div key={`workout preview ${exercise.id}`}>
+        {addedExercises.map((exercise, index) => (
+          <div key={`workout preview ${exercise.id + index}`}>
             <ExerciseCard
               exercise={exercise}
               showRemoveButton
