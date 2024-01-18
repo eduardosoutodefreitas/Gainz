@@ -42,9 +42,7 @@ const WorkoutPage = async ({ params }: WorkoutPageProps) => {
             console.log(exercise);
             return (
               <div key={`user exercise ${exercise.id} ${index}`}>
-                <ExerciseCard exercise={exercise} />
-                <p>{exercise.reps}</p>
-                <p>{exercise.sets}</p>
+                <ExerciseCard exercise={exercise} showExerciseDetails />
               </div>
             );
           })}
