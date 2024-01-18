@@ -2,8 +2,7 @@ import getExercises from "@/services/getExercises";
 import getUserEmail from "@/services/getUserEmail";
 import getUserWorkoutExercises from "@/services/getUserWorkoutExercises";
 import { Exercise } from "@/types/ExercisesTypes";
-import { ErrorComponent } from "next/dist/client/components/error-boundary";
-import React from "react";
+import prisma from "@/lib/prisma";
 
 const useUserWorkout = async (id: string) => {
   const exercises: Exercise[] = await getExercises(); //Todos os exercícios da API

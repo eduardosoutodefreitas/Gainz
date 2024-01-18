@@ -1,6 +1,5 @@
 import { WorkoutData } from "@/types/WorkoutDataTypes";
 import prisma from "./prisma";
-import { Workout } from "@prisma/client";
 
 export async function createWorkout(
   userEmail: string,
