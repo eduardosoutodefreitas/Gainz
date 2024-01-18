@@ -1,6 +1,6 @@
 import React from "react";
 import Footer from "./components/Footer/Footer";
-import Hero from "./components/Hero/Hero";
+import Hero from "./components/Sections/Hero/Hero";
 import Features from "./components/Features/Features";
 import Cta from "./components/CtaSection/Cta";
 
