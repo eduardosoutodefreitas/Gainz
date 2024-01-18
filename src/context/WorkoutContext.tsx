@@ -59,10 +59,6 @@ const WorkoutProvider = ({ children }: WorkoutProviderProps) => {
       setAddedExercises(updatedExercises);
     }
   };
-
-  // const updateUserExercise = (exerciseId: string) => (
-
-  // )
   const clearAddedExercises = () => {
     setAddedExercises([]);
   };

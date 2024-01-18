@@ -5,6 +5,7 @@ import Image from "next/image";
 import { Exercise } from "@/types/ExercisesTypes";
 import ExerciseDetailsInputs from "./ExerciseDetailsInputs";
 import AddExerciseButton from "@/app/components/AddExercise/AddExerciseButton";
+import ExerciseDetails from "./ExerciseDetails";
 
 interface ExerciseCardProps {
   exercise: Exercise;
@@ -12,6 +13,7 @@ interface ExerciseCardProps {
   showAddButton?: boolean;
   showExerciseDetailsInputs?: boolean;
   showMuscleTarget?: boolean;
+  showExerciseDetails?: boolean;
   imageSize?: "small" | "medium" | "large";
 }
 
@@ -21,6 +23,7 @@ const ExerciseCard: React.FC<ExerciseCardProps> = ({
   showAddButton = false,
   showMuscleTarget = false,
   showExerciseDetailsInputs = false,
+  showExerciseDetails = false,
   imageSize = "medium",
 }: ExerciseCardProps) => {
   const imageSizeClass = {
@@ -56,6 +59,11 @@ const ExerciseCard: React.FC<ExerciseCardProps> = ({
           <p className='text-sm capitalize font-medium text-secondary'>
             {exercise.target}
           </p>
+        )}
+        {showExerciseDetails && (
+          <div className='flex justify-between items-center mt-2'>
+            <ExerciseDetails reps={exercise.reps} sets={exercise.sets} />
+          </div>
         )}
         {showExerciseDetailsInputs && (
           <div className='flex justify-between items-center mt-2'>
