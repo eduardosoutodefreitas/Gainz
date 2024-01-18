@@ -2,7 +2,6 @@
 import { createWorkoutAction } from "@/app/actions/CreateUserWorkout/_actions";
 import { useWorkout } from "@/context/WorkoutContext";
 import { WorkoutData } from "@/types/WorkoutDataTypes";
-import { Workout } from "@prisma/client";
 import { useSession } from "next-auth/react";
 import { useRouter } from "next/navigation";
 import { useState } from "react";
