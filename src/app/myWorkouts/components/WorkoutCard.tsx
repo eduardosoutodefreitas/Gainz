@@ -1,7 +1,7 @@
 import { Workout } from "@prisma/client";
 import Link from "next/link";
 import { FaDumbbell } from "react-icons/fa6";
-import DeleteWorkoutButton from "../DeleteWorkoutButton/DeleteWorkoutButton";
+import DeleteWorkoutButton from "./DeleteWorkoutButton";
 
 interface WorkoutCardProps {
   workout: Workout;
