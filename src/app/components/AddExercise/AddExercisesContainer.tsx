@@ -3,7 +3,7 @@ import { Exercise } from "@/types/ExercisesTypes";
 import targets from "@/constants/targets";
 import { Select, SelectItem } from "@nextui-org/react";
 import { useMemo, useState } from "react";
-import ExerciseCard from "../ExerciseCard.tsx/ExerciseCard";
+import ExerciseCard from "../ExerciseCard/ExerciseCard";
 import { FixedSizeList } from "react-window";
 
 interface AddExercisesContainerProps {
