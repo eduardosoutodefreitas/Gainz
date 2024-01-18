@@ -1,14 +1,16 @@
 import { FaPlus } from "react-icons/fa6";
 import { IoClose } from "react-icons/io5";
-import RemoveExerciseButton from "../RemoveExerciseButton/RemoveExerciseButton";
-import AddExerciseButton from "../AddExercise/AddExerciseButton";
+import RemoveExerciseButton from "./RemoveExerciseButton";
 import Image from "next/image";
 import { Exercise } from "@/types/ExercisesTypes";
+import ExerciseDetailsInputs from "./ExerciseDetailsInputs";
+import AddExerciseButton from "@/app/components/AddExercise/AddExerciseButton";
 
 interface ExerciseCardProps {
   exercise: Exercise;
   showRemoveButton?: boolean;
   showAddButton?: boolean;
+  showExerciseDetailsInputs?: boolean;
   showMuscleTarget?: boolean;
   imageSize?: "small" | "medium" | "large";
 }
@@ -18,6 +20,7 @@ const ExerciseCard: React.FC<ExerciseCardProps> = ({
   showRemoveButton = false,
   showAddButton = false,
   showMuscleTarget = false,
+  showExerciseDetailsInputs = false,
   imageSize = "medium",
 }: ExerciseCardProps) => {
   const imageSizeClass = {
@@ -46,13 +49,18 @@ const ExerciseCard: React.FC<ExerciseCardProps> = ({
         />
       </div>
       <div className='self-start w-[50%]'>
-        <p className='text-sm xs:text-base sm:text-lg capitalize font-medium'>
+        <p className='text-xs xs:text-sm sm:text-base md:text-lg capitalize font-medium'>
           {exercise.name}
         </p>
         {showMuscleTarget && (
           <p className='text-sm capitalize font-medium text-secondary'>
             {exercise.target}
           </p>
+        )}
+        {showExerciseDetailsInputs && (
+          <div className='flex justify-between items-center mt-2'>
+            <ExerciseDetailsInputs exerciseId={exercise.id} />
+          </div>
         )}
       </div>
       {showAddButton && (

@@ -6,6 +6,7 @@ import { useSession } from "next-auth/react";
 import { useRouter } from "next/navigation";
 import { useState } from "react";
 import toast from "react-hot-toast";
+
 const useWorkoutPreview = () => {
   const { push } = useRouter();
   const [isLoading, setIsLoading] = useState(false);
@@ -26,12 +27,15 @@ const useWorkoutPreview = () => {
 
     try {
       setIsLoading(true);
-      const newWorkoutExercisesList = addedExercises.map(
-        (exercise) => exercise.id
-      );
+      const newWorkoutExercisesList = addedExercises.map((exercise) => ({
+        name: exercise.name,
+        exerciseId: exercise.id,
+        sets: exercise.sets,
+        reps: exercise.reps,
+      }));
       const workout: WorkoutData = {
-        exercisesList: newWorkoutExercisesList,
         name: workoutName,
+        userExercises: newWorkoutExercisesList,
       };
 
       const userEmail = data?.user?.email;
@@ -55,12 +59,11 @@ const useWorkoutPreview = () => {
 
   return {
     workoutName,
+    addedExercises,
     buttonIsDisabled: !(
       addedExercises.length > 0 && workoutName.trim().length > 0
     ),
-    addedExercises,
     isLoading,
-    isLoggedIn,
     setWorkoutName,
     handleSaveWorkoutClick,
   };

@@ -1,6 +1,12 @@
 "use client";
 import { Exercise } from "@/types/ExercisesTypes";
-import { createContext, useState, useContext, ReactNode } from "react";
+import {
+  createContext,
+  useState,
+  useContext,
+  ReactNode,
+  useCallback,
+} from "react";
 
 interface WorkoutProviderProps {
   children: ReactNode;
@@ -9,6 +15,10 @@ interface WorkoutProviderProps {
 interface WorkoutContextProps {
   addedExercises: Exercise[];
   addExercise: (exercise: Exercise) => void;
+  updateExerciseDetails: (
+    exerciseId: string,
+    details: { sets?: number; reps?: number }
+  ) => void;
   removeExercise: (exerciseId: string) => void;
   clearAddedExercises: () => void;
 }
@@ -17,6 +27,7 @@ const WorkoutContext = createContext<WorkoutContextProps>({
   addExercise: () => {},
   removeExercise: () => {},
   clearAddedExercises: () => {},
+  updateExerciseDetails: () => {},
   addedExercises: [],
 });
 
@@ -26,6 +37,16 @@ const WorkoutProvider = ({ children }: WorkoutProviderProps) => {
   const addExercise = (exercise: Exercise) => {
     setAddedExercises([...addedExercises, exercise]);
   };
+  const updateExerciseDetails = useCallback(
+    (exerciseId: string, details: { sets?: number; reps?: number }) => {
+      setAddedExercises((prevExercises) =>
+        prevExercises.map((exercise) =>
+          exercise.id === exerciseId ? { ...exercise, ...details } : exercise
+        )
+      );
+    },
+    []
+  );
 
   const removeExercise = (exerciseId: string) => {
     const indexToRemove = addedExercises.findIndex(
@@ -38,6 +59,10 @@ const WorkoutProvider = ({ children }: WorkoutProviderProps) => {
       setAddedExercises(updatedExercises);
     }
   };
+
+  // const updateUserExercise = (exerciseId: string) => (
+
+  // )
   const clearAddedExercises = () => {
     setAddedExercises([]);
   };
@@ -46,6 +71,7 @@ const WorkoutProvider = ({ children }: WorkoutProviderProps) => {
     <WorkoutContext.Provider
       value={{
         addedExercises,
+        updateExerciseDetails,
         addExercise,
         removeExercise,
         clearAddedExercises,

@@ -4,4 +4,6 @@ export interface Exercise {
   gifUrl: string;
   target: string;
   instructions: string[];
+  sets: number;
+  reps: number;
 }

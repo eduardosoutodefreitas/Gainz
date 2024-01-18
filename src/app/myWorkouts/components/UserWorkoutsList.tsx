@@ -1,7 +1,7 @@
 "use client";
 import { Workout } from "@prisma/client";
-import WorkoutCard from "../components/WorkoutCard/WorkoutCard";
-import { deleteWorkoutAction } from "../actions/DeleteUserWorkout/_actions";
+import WorkoutCard from "./WorkoutCard";
+import { deleteWorkoutAction } from "../../actions/DeleteUserWorkout/_actions";
 import toast from "react-hot-toast";
 
 interface UserWorkoutsListProps {

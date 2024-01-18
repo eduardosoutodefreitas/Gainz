@@ -1,5 +1,6 @@
 import { WorkoutData } from "@/types/WorkoutDataTypes";
 import prisma from "./prisma";
+import { Workout } from "@prisma/client";
 
 export async function createWorkout(
   userEmail: string,
@@ -10,17 +11,26 @@ export async function createWorkout(
       where: {
         email: userEmail,
       },
-      include: { createdWorkouts: true },
+      include: { workouts: true },
     });
+
     if (!user) {
       console.error("Usuário não encontrado.");
       return;
     }
+
     const newWorkout = await prisma.workout.create({
       data: {
         name: workoutData.name,
-        exercisesList: workoutData.exercisesList,
         userId: user.id,
+        userExercises: {
+          create: workoutData.userExercises.map((exercise) => ({
+            name: exercise.name,
+            reps: exercise.reps || 12,
+            sets: exercise.sets || 4,
+            exerciseId: exercise.exerciseId,
+          })),
+        },
       },
     });
 
@@ -29,13 +39,14 @@ export async function createWorkout(
         id: user.id,
       },
       data: {
-        createdWorkouts: {
+        workouts: {
           connect: {
             id: newWorkout.id,
           },
         },
       },
     });
+
     console.log("Usuário com novos treinos:", updatedUser);
     return newWorkout;
   } catch (error) {
@@ -50,14 +61,14 @@ export async function getUserWorkouts(userEmail: string) {
       where: {
         email: userEmail,
       },
-      include: { createdWorkouts: true },
+      include: { workouts: true },
     });
     if (!user) {
       console.error("Usuário não encontrado.");
       return;
     }
 
-    const createdWorkouts = user.createdWorkouts;
+    const createdWorkouts = user.workouts;
 
     return createdWorkouts;
   } catch (error) {

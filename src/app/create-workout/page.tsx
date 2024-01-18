@@ -1,9 +1,9 @@
 import SectionTitle from "../components/SectionTitle/SectionTitle";
-import AddExercisesContainer from "../components/AddExercise/AddExercisesContainer";
 import getExercises from "@/services/getExercises";
 import { Exercise } from "@/types/ExercisesTypes";
-import WorkoutPreview from "../components/WorkoutPreview/WorkoutPreview";
+import WorkoutPreview from "./components/WorkoutPreview";
 import AddExercisesModal from "../components/AddExercise/AddExerciseModal";
+import AddExercisesContainer from "../components/AddExercise/AddExercisesContainer";
 
 const CreateWorkoutPage = async () => {
   const exercises: Exercise[] = await getExercises();
