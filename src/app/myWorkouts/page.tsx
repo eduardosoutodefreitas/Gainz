@@ -5,7 +5,7 @@ import { MdChecklist } from "react-icons/md";
 import SectionTitle from "../components/SectionTitle/SectionTitle";
 import getUserEmail from "@/services/getUserEmail";
 import ErrorComponent from "../components/ErrorComponent/ErrorComponent";
-import UserWorkoutsList from "./UserWorkoutsList";
+import UserWorkoutsList from "./components/UserWorkoutsList";
 
 const MyWorkoutsPage = async () => {
   const { session, userEmail } = await getUserEmail();
