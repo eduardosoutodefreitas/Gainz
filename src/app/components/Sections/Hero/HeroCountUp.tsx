@@ -1,5 +1,5 @@
 "use client";
-import targets from "@/constants/targets";
+import targets from "@/constants/Targets";
 import React from "react";
 import CountUp from "react-countup";
 
