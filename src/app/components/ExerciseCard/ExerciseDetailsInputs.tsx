@@ -1,14 +1,14 @@
 "use client";
 
-import { useWorkout } from "@/context/WorkoutContext";
+import { useWorkoutStore } from "@/store/workout";
 import { Input } from "@nextui-org/react";
-import { useEffect, useState } from "react";
+import { useState } from "react";
 interface ExerciseDetailsInputs {
   exerciseId: string;
 }
 
 const ExerciseDetailsInputs = ({ exerciseId }: ExerciseDetailsInputs) => {
-  const { updateExerciseDetails } = useWorkout();
+  const { updateExerciseDetails } = useWorkoutStore().actions;
   const [sets, setSets] = useState<number>(4);
   const [reps, setReps] = useState<number>(12);
 

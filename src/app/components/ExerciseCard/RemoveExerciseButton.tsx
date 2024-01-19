@@ -1,6 +1,6 @@
 "use client";
 
-import { useWorkout } from "@/context/WorkoutContext";
+import { useWorkoutStore } from "@/store/workout";
 import { Button } from "@nextui-org/react";
 interface RemoveExerciseButtonProps {
   exerciseId: string;
@@ -11,7 +11,7 @@ const RemoveExerciseButton = ({
   children,
   exerciseId,
 }: RemoveExerciseButtonProps) => {
-  const { removeExercise } = useWorkout();
+  const { removeExercise } = useWorkoutStore().actions;
   const handleRemoveExerciseClick = () => {
     removeExercise(exerciseId);
   };

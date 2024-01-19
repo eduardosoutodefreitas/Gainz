@@ -1,6 +1,6 @@
 "use client";
 import { createWorkoutAction } from "@/app/actions/CreateUserWorkout/_actions";
-import { useWorkout } from "@/context/WorkoutContext";
+import { useWorkoutStore } from "@/store/workout";
 import { WorkoutData } from "@/types/WorkoutDataTypes";
 import { useSession } from "next-auth/react";
 import { useRouter } from "next/navigation";
@@ -12,7 +12,10 @@ const useWorkoutPreview = () => {
   const [isLoading, setIsLoading] = useState(false);
   const [workoutName, setWorkoutName] = useState("");
   const { data } = useSession();
-  const { addedExercises, clearAddedExercises } = useWorkout();
+  const {
+    state: { addedExercises },
+    actions: { clearAddedExercises },
+  } = useWorkoutStore();
   const isLoggedIn = !!data?.user;
 
   const showLoginToast = () => {

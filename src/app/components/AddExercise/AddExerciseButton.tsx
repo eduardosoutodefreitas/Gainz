@@ -1,7 +1,7 @@
 "use client";
 
 import { useExercisesModal } from "@/context/ExercisesModalContext";
-import { useWorkout } from "@/context/WorkoutContext";
+import { useWorkoutStore } from "@/store/workout";
 import { Exercise } from "@/types/ExercisesTypes";
 import { Button } from "@nextui-org/react";
 interface AddExerciseButtonProps {
@@ -10,7 +10,7 @@ interface AddExerciseButtonProps {
 }
 
 const AddExerciseButton = ({ exercise, children }: AddExerciseButtonProps) => {
-  const { addExercise } = useWorkout();
+  const { addExercise } = useWorkoutStore().actions;
   const { onOpenChange, isOpen } = useExercisesModal();
   const handleAddExerciseClick = () => {
     addExercise(exercise);
