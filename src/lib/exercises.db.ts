@@ -1,21 +1,24 @@
 import { WorkoutData } from "@/types/WorkoutDataTypes";
 import prisma from "./prisma";
 
+const handleErrors = (message: string, error: any) => {
+  console.error(message, error);
+  throw error;
+};
+
 export async function createWorkout(
   userEmail: string,
   workoutData: WorkoutData
 ) {
   try {
     const user = await prisma.user.findUnique({
-      where: {
-        email: userEmail,
-      },
+      where: { email: userEmail },
       include: { workouts: true },
     });
 
     if (!user) {
-      console.error("Usuário não encontrado.");
-      return;
+      handleErrors("Usuário não encontrado.", null);
+      return null;
     }
 
     const newWorkout = await prisma.workout.create({
@@ -34,69 +37,50 @@ export async function createWorkout(
     });
 
     const updatedUser = await prisma.user.update({
-      where: {
-        id: user.id,
-      },
-      data: {
-        workouts: {
-          connect: {
-            id: newWorkout.id,
-          },
-        },
-      },
+      where: { id: user.id },
+      data: { workouts: { connect: { id: newWorkout.id } } },
     });
 
     console.log("Usuário com novos treinos:", updatedUser);
     return newWorkout;
   } catch (error) {
-    console.error("Erro ao adicionar treino:", error);
-    throw error;
+    handleErrors("Erro ao adicionar treino:", error);
+    return null;
   }
 }
 
 export async function getUserWorkouts(userEmail: string) {
   try {
     const user = await prisma.user.findUnique({
-      where: {
-        email: userEmail,
-      },
+      where: { email: userEmail },
       include: { workouts: true },
     });
+
     if (!user) {
-      console.error("Usuário não encontrado.");
-      return;
+      handleErrors("Usuário não encontrado.", null);
+      return null;
     }
 
     const createdWorkouts = user.workouts;
 
     return createdWorkouts;
   } catch (error) {
-    console.log(error);
+    handleErrors("Erro ao obter treinos do usuário:", error);
   }
 }
+
 export async function deleteWorkout(userEmail: string, workoutId: string) {
   try {
-    const user = await prisma.user.findUnique({
-      where: {
-        email: userEmail,
-      },
+    await prisma.userExercise.deleteMany({
+      where: { workoutId: workoutId },
     });
 
-    if (!user) {
-      console.error("Usuário não encontrado.");
-      return;
-    }
-
-    // Exclua o treino
     await prisma.workout.delete({
-      where: {
-        id: workoutId,
-      },
+      where: { id: workoutId },
     });
 
     console.log("Treino removido com sucesso.");
   } catch (error) {
-    console.error("Erro ao excluir treino:", error);
-    throw error;
+    handleErrors("Erro ao excluir treino:", error);
   }
 }
