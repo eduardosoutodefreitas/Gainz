@@ -41,7 +41,7 @@ export const useWorkoutStore = create<StoreProps>((set) => ({
         );
         if (indexToRemove !== -1) {
           const updatedExercises = [...prevState.state.addedExercises];
-          updatedExercises.slice(indexToRemove, 1);
+          updatedExercises.splice(indexToRemove, 1);
           return { state: { addedExercises: updatedExercises } };
         }
         return prevState;
