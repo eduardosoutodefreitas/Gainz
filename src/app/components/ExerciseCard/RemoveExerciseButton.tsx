@@ -22,7 +22,7 @@ const RemoveExerciseButton = ({
       variant='light'
       aria-label='Take a photo'
       onClick={handleRemoveExerciseClick}
-      className='min-w-[35px] absolute right-1 top-1'
+      className='min-w-[30px] absolute right-0 top-0'
     >
       {children}
     </Button>

@@ -26,7 +26,8 @@ const ExerciseDetailsInputs = ({ exerciseId }: ExerciseDetailsInputs) => {
         label='Reps:'
         defaultValue='12'
         variant='flat'
-        className='text-sm max-w-[85px] text-center items-center flex justify-center'
+        size='sm'
+        className='w-[75px] xs:max-w-[85px] text-center items-center flex justify-center text-xs sm:texts-sm'
         labelPlacement='outside-left'
         value={String(reps)}
         onValueChange={(value) => handleRepsChange(Number(value))}
@@ -37,8 +38,9 @@ const ExerciseDetailsInputs = ({ exerciseId }: ExerciseDetailsInputs) => {
         label='Sets:'
         defaultValue='4'
         variant='flat'
+        size='sm'
         labelPlacement='outside-left'
-        className='max-w-[85px] text-center text-sm'
+        className='w-[75px] xs:max-w-[85px] text-center text-xs sm:texts-sm'
         value={String(sets)}
         onValueChange={(value) => handleSetsChange(Number(value))}
         onBlur={handleBlur}
