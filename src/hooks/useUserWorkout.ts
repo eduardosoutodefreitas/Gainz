@@ -13,13 +13,12 @@ const useUserWorkout = async (id: string) => {
     where: {
       id: id,
     },
+    include: {
+      userExercises: true,
+    },
   }); //workout com id = id
 
-  const userExercises = await prisma?.userExercise.findMany({
-    where: {
-      workoutId: id,
-    },
-  }); //Exercícios pertencentes ao workout
+  const userExercises = workout?.userExercises;
 
   const workoutExercises = getUserWorkoutExercises(userExercises!, exercises); //Pega os exercícios com o gif atualizado
   return { workoutExercises, workout, userExercises, session, userEmail };
