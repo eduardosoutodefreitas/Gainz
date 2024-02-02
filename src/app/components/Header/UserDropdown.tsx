@@ -35,10 +35,8 @@ const UserDropdown = ({ email, imageUrl, name, signOut }: UserOptionsProps) => {
           <p className='font-semibold'>{email}</p>
         </DropdownItem>
 
-        <DropdownItem key='my_workouts'>
-          <Link className='w-full hover:text-secondary' href='/myWorkouts'>
-            My Workouts
-          </Link>
+        <DropdownItem key='my_workouts' as={"a"} href='/myWorkouts'>
+          My Workouts
         </DropdownItem>
         <DropdownItem
           key='logout'

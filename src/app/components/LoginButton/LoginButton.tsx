@@ -5,7 +5,7 @@ import { CiLogin } from "react-icons/ci";
 import UserDropdown from "../Header/UserDropdown";
 
 const LoginButton = () => {
-  const { status, data } = useSession();
+  const { data } = useSession();
   const handleLoginClick = () => {
     signIn("google");
   };
@@ -15,7 +15,14 @@ const LoginButton = () => {
   return (
     <NavbarContent justify='end'>
       <NavbarItem>
-        {status === "unauthenticated" && (
+        {data?.user ? (
+          <UserDropdown
+            name={data.user.name!}
+            email={data.user.email!}
+            imageUrl={data.user.image!}
+            signOut={handleLogoutClick}
+          />
+        ) : (
           <Button
             startContent={<CiLogin size={25} />}
             className='xs:text-base text-sm'
@@ -27,14 +34,6 @@ const LoginButton = () => {
           >
             Login
           </Button>
-        )}
-        {status === "authenticated" && data.user && (
-          <UserDropdown
-            name={data.user.name!}
-            email={data.user.email!}
-            imageUrl={data.user.image!}
-            signOut={handleLogoutClick}
-          />
         )}
       </NavbarItem>
     </NavbarContent>
