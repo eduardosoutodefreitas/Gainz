@@ -21,30 +21,26 @@ const ExerciseDetailsInputs = ({ exerciseId }: ExerciseDetailsInputs) => {
 
   return (
     <>
-      <Input
-        type='number'
-        label='Reps:'
-        defaultValue='12'
-        variant='flat'
-        size='sm'
-        className='w-[75px] xs:max-w-[85px] text-center items-center flex justify-center text-xs sm:texts-sm'
-        labelPlacement='outside-left'
-        value={String(reps)}
-        onValueChange={(value) => handleRepsChange(Number(value))}
-        onBlur={handleBlur}
-      />
-      <Input
-        type='number'
-        label='Sets:'
-        defaultValue='4'
-        variant='flat'
-        size='sm'
-        labelPlacement='outside-left'
-        className='w-[75px] xs:max-w-[85px] text-center text-xs sm:texts-sm'
-        value={String(sets)}
-        onValueChange={(value) => handleSetsChange(Number(value))}
-        onBlur={handleBlur}
-      />
+      <div className='flex items-center gap-2'>
+        <label htmlFor=''>Reps:</label>
+        <input
+          type='number'
+          className='w-12 bg-transparent border-b border-white p-1 text-center sm:texts-sm'
+          defaultValue={reps}
+          onChange={(value) => handleRepsChange(Number(value))}
+          onBlur={handleBlur}
+        />
+      </div>
+      <div className='flex items-center gap-2'>
+        <label htmlFor=''>Sets:</label>
+        <input
+          type='number'
+          defaultValue={sets}
+          className='w-12 bg-transparent border-b border-white p-1 text-center sm:texts-sm'
+          onChange={(value) => handleSetsChange(Number(value))}
+          onBlur={handleBlur}
+        />
+      </div>
     </>
   );
 };
