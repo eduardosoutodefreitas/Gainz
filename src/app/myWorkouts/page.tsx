@@ -17,7 +17,7 @@ const MyWorkoutsPage = async () => {
   const userWorkouts = await getUserWorkouts(userEmail);
 
   return (
-    <div className='w-full max-w-4xl pt-8 mx-auto px-5 sm:px-3'>
+    <div className='w-full flex flex-col justify-center max-w-4xl mx-auto px-5 sm:px-3'>
       <div className='w-full p-5 mb-8 flex flex-col gap-5 xs:gap-0 xs:flex-row xs:items-center xs:justify-between rounded-sm bg-darkSecondaryBg'>
         <div className='w-full text-center xs:text-start'>
           <SectionTitle>My workouts</SectionTitle>

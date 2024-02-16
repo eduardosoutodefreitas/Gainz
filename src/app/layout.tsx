@@ -22,8 +22,10 @@ export default function RootLayout({
         className={`${inter.className} scrollbar-thin scrollbar-thumb-secondary scrollbar-thumb-rounded-sm scrollbar-track-black`}
       >
         <AppProvider>
-          <Header />
-          {children}
+          <div className='flex flex-col min-h-screen'>
+            <Header />
+            {children}
+          </div>
         </AppProvider>
       </body>
     </html>
