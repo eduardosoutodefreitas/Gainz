@@ -18,11 +18,11 @@ const RemoveExerciseButton = ({
   return (
     <Button
       isIconOnly
+      className='px-0'
       color='secondary'
       variant='light'
       aria-label='Take a photo'
       onClick={handleRemoveExerciseClick}
-      className='min-w-[30px] absolute right-0 top-0'
     >
       {children}
     </Button>

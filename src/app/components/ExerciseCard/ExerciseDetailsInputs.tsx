@@ -21,7 +21,7 @@ const ExerciseDetailsInputs = ({ exerciseId }: ExerciseDetailsInputs) => {
 
   return (
     <>
-      <div className='flex items-center gap-2'>
+      <div className='flex items-center justify-between text-xs xs:text-sm sm:text-base w-[100px]'>
         <label htmlFor=''>Reps:</label>
         <input
           type='number'
@@ -31,7 +31,7 @@ const ExerciseDetailsInputs = ({ exerciseId }: ExerciseDetailsInputs) => {
           onBlur={handleBlur}
         />
       </div>
-      <div className='flex items-center gap-2'>
+      <div className='flex items-center justify-between text-xs xs:text-sm sm:text-base w-[100px]'>
         <label htmlFor=''>Sets:</label>
         <input
           type='number'

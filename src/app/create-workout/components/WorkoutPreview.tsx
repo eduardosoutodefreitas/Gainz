@@ -15,7 +15,7 @@ const WorkoutPreview = () => {
   } = useWorkoutPreview();
 
   return (
-    <div className='bg-darkSecondaryBg flex flex-col justify-between lg:max-w-3xl w-full rounded-sm h-[600px] p-5 gap-8'>
+    <div className='bg-darkSecondaryBg flex flex-col justify-between lg:max-w-3xl w-full rounded-sm h-[600px] py-5 px-3 xs:px-5 gap-8'>
       <Input
         type='text'
         label='Workout name'

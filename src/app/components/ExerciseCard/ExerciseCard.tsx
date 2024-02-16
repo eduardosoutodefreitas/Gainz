@@ -14,11 +14,13 @@ interface ExerciseCardProps {
   showExerciseDetailsInputs?: boolean;
   showMuscleTarget?: boolean;
   showExerciseDetails?: boolean;
+  extraStyles?: string;
   imageSize?: "small" | "medium" | "large";
 }
 
 const ExerciseCard: React.FC<ExerciseCardProps> = ({
   exercise,
+  extraStyles = "",
   showRemoveButton = false,
   showAddButton = false,
   showMuscleTarget = false,
@@ -27,21 +29,17 @@ const ExerciseCard: React.FC<ExerciseCardProps> = ({
   imageSize = "medium",
 }: ExerciseCardProps) => {
   const imageSizeClass = {
-    small: "xs:w-[100px] xs:h-[100px] w-[80px] h-[80px]",
-    medium:
-      "sm:w-[120px] sm:h-[120px] xs:w-[100px] xs:h-[100px] w-[80px] h-[80px]",
-    large: "w-[150px] h-[150px]",
+    small: "xs:w-[100px] h-auto w-[80px] aspect-square",
+    medium: "sm:w-[120px] h-auto xs:w-[100px] min-w-[90px] aspect-square",
+    large: "w-[150px] h-auto aspect-square",
   }[imageSize];
   const sizes = "(max-width: 640px) 100vw, (max-width: 768px) 90vw, 80vw";
 
   return (
-    <div className='relative flex items-center gap-5 mb-5 w-full hover:bg-default-50 rounded-md'>
-      {showRemoveButton && (
-        <RemoveExerciseButton exerciseId={exercise.id}>
-          <IoClose size={35} />
-        </RemoveExerciseButton>
-      )}
-      <div className={`relative ${imageSizeClass}`}>
+    <div
+      className={`${extraStyles} relative flex items-center gap-5 mb-8 xs:mb-5 w-full hover:bg-default-50 rounded-md`}
+    >
+      <div className={`relative flex-3 ${imageSizeClass}`}>
         <Image
           fill
           unoptimized
@@ -52,7 +50,7 @@ const ExerciseCard: React.FC<ExerciseCardProps> = ({
           src={exercise.gifUrl}
         />
       </div>
-      <div className='self-start w-[50%]'>
+      <div className='self-start flex-1 flex-wrap'>
         <p className='text-xs xs:text-sm sm:text-base md:text-lg capitalize font-medium'>
           {exercise.name}
         </p>
@@ -62,7 +60,7 @@ const ExerciseCard: React.FC<ExerciseCardProps> = ({
           </p>
         )}
         {showExerciseDetails && (
-          <div className='flex justify-between items-center mt-2'>
+          <div className='flex flex-col xs:flex-row gap-2 xs:justify-between items-start xs:items-center mt-2'>
             <ExerciseDetails reps={exercise.reps} sets={exercise.sets} />
           </div>
         )}
@@ -72,10 +70,19 @@ const ExerciseCard: React.FC<ExerciseCardProps> = ({
           </div>
         )}
       </div>
+      {showRemoveButton && (
+        <div className='self-start justify-self-end'>
+          <RemoveExerciseButton exerciseId={exercise.id}>
+            <IoClose className='text-2xl xs:text-3xl' />
+          </RemoveExerciseButton>
+        </div>
+      )}
       {showAddButton && (
-        <AddExerciseButton exercise={exercise}>
-          <FaPlus size={28} />
-        </AddExerciseButton>
+        <div className=''>
+          <AddExerciseButton exercise={exercise}>
+            <FaPlus size={28} />
+          </AddExerciseButton>
+        </div>
       )}
     </div>
   );
